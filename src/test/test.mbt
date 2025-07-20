@@ -1,6 +1,6 @@
 ///|
 test "test parse biblatex file" {
-  let bib = @biblatex.parse(resource).stringify()
+  let bib = @biblatex.Bibliography::parse(resource).stringify()
   inspect(
     bib,
     content=(

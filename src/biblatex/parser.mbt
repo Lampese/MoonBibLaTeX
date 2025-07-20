@@ -133,7 +133,21 @@ fn Parser::parse_value(self : Parser) -> InnerValue {
 }
 
 ///|
-pub fn parse(input : String) -> Bibliography {
+/// Parse the input string into a Bibliography.
+/// ```mbt
+/// let code = 
+///   #|@article{CitekeyArticle,
+///   #|  author = {P. J. Cohen},
+///   #|  title = {The independence of the continuum hypothesis},
+///   #|  journal = {Proceedings of the National Academy of Sciences},
+///   #|  year = {1963},
+///   #|  volume = {50},
+///   #|  number = {6},
+///   #|  pages = {1143--1148},
+///   #|}
+/// let _ = Bibliography::parse(code)
+/// ```
+pub fn Bibliography::parse(input : String) -> Bibliography {
   let lexer = Lexer::new(input).lexing()
   let parser = Parser::new(lexer)
   parser.parse()
