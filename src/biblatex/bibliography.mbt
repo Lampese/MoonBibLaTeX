@@ -89,7 +89,7 @@ pub fn Bibliography::size(self : Bibliography) -> Int {
 /// Get the iterator of the Bibliography.
 /// ```mbt
 /// let bib = Bibliography::new()
-/// println(bib.iter().to_array().length()) // 0 
+/// bib.iter().to_array().length() |> ignore() // 0 
 /// ```
 pub fn Bibliography::iter(self : Bibliography) -> Iter[Entry] {
   self.entries.iter().map(x => x.1).iter()
