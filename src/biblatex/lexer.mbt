@@ -23,13 +23,13 @@ priv struct Lexer {
 
 ///|
 fn Lexer::new(input : String) -> Lexer {
-  { input, currentChar: Some(input.char_at(0)), currentIndex: 1 }
+  { input, currentChar: Some(input.get_char(0).unwrap()), currentIndex: 1 }
 }
 
 ///|
 fn Lexer::advance(self : Lexer) -> Unit {
   if self.currentIndex < self.input.length() {
-    self.currentChar = Some(self.input.char_at(self.currentIndex))
+    self.currentChar = Some(self.input.get_char(self.currentIndex).unwrap())
     self.currentIndex += 1
   } else {
     self.currentChar = None
@@ -39,7 +39,7 @@ fn Lexer::advance(self : Lexer) -> Unit {
 ///|
 fn Lexer::back(self : Lexer) -> Unit {
   self.currentIndex -= 1
-  self.currentChar = Some(self.input.char_at(self.currentIndex))
+  self.currentChar = Some(self.input.get_char(self.currentIndex).unwrap())
 }
 
 ///|
@@ -74,7 +74,7 @@ fn Lexer::read_string_quote(self : Lexer) -> String {
 fn Lexer::escape_handle(
   self : Lexer,
   start_char : Char,
-  first_layer : Bool
+  first_layer : Bool,
 ) -> String {
   let end_char = match start_char {
     '{' => '}'

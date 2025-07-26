@@ -17,7 +17,7 @@ fn to_value(value : InnerValue, string_map : Map[String, InnerValue]) -> Value {
 ///|
 fn transfrom(
   entries : Array[InnerEntry],
-  string_defines : Array[StringDefine]
+  string_defines : Array[StringDefine],
 ) -> Bibliography {
   let string_map = Map::from_array(
     string_defines.map(x => (x.string_name, x.value)),

@@ -42,7 +42,7 @@ fn Parser::parse(self : Parser) -> Bibliography {
 
 ///|
 fn Parser::parse_entry(
-  self : Parser
+  self : Parser,
 ) -> (Array[InnerEntry], Array[StringDefine]) {
   let entries = []
   let string_defines = []

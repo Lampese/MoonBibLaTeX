@@ -1,0 +1,97 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Lampese/biblatex/biblatex"
+
+// Values
+
+// Types and methods
+pub struct Bibliography {
+  // private fields
+}
+fn Bibliography::get(Self, String) -> Entry?
+fn Bibliography::get_entry_map(Self) -> Map[String, Entry]
+fn Bibliography::iter(Self) -> Iter[Entry]
+fn Bibliography::new() -> Self
+fn Bibliography::parse(String) -> Self
+fn Bibliography::remove(Self, String) -> Unit
+fn Bibliography::set(Self, Entry) -> Unit
+fn Bibliography::size(Self) -> Int
+fn Bibliography::stringify(Self) -> String
+
+pub struct Entry {
+  // private fields
+}
+fn Entry::address(Self) -> String?
+fn Entry::annote(Self) -> String?
+fn Entry::author(Self) -> String?
+fn Entry::booktitle(Self) -> String?
+fn Entry::chapter(Self) -> Int?
+fn Entry::cite_key(Self) -> String
+fn Entry::doi(Self) -> String?
+fn Entry::edition(Self) -> String?
+fn Entry::editor(Self) -> String?
+fn Entry::entry_type(Self) -> String
+fn Entry::fields(Self) -> Map[String, Value]
+fn Entry::get(Self, String) -> Value?
+fn Entry::howpublished(Self) -> String?
+fn Entry::institution(Self) -> String?
+fn Entry::isbn(Self) -> String?
+fn Entry::issn(Self) -> String?
+fn Entry::journal(Self) -> String?
+fn Entry::month(Self) -> String?
+fn Entry::new(entry_type~ : String, cite_key~ : String, fields~ : Map[String, Value] = ..) -> Self
+fn Entry::note(Self) -> String?
+fn Entry::number(Self) -> Value?
+fn Entry::organization(Self) -> String?
+fn Entry::pages(Self) -> Value?
+fn Entry::publisher(Self) -> String?
+fn Entry::remove(Self, String) -> Unit
+fn Entry::school(Self) -> String?
+fn Entry::series(Self) -> String?
+fn Entry::set(Self, String, Value) -> Unit
+fn Entry::set_address(Self, String) -> Unit
+fn Entry::set_annote(Self, String) -> Unit
+fn Entry::set_author(Self, String) -> Unit
+fn Entry::set_booktitle(Self, String) -> Unit
+fn Entry::set_chapter(Self, Int) -> Unit
+fn Entry::set_cite_key(Self, String) -> Unit
+fn Entry::set_doi(Self, String) -> Unit
+fn Entry::set_edition(Self, String) -> Unit
+fn Entry::set_editor(Self, String) -> Unit
+fn Entry::set_entry_type(Self, String) -> Unit
+fn Entry::set_howpublished(Self, String) -> Unit
+fn Entry::set_institution(Self, String) -> Unit
+fn Entry::set_isbn(Self, String) -> Unit
+fn Entry::set_issn(Self, String) -> Unit
+fn Entry::set_journal(Self, String) -> Unit
+fn Entry::set_month(Self, String) -> Unit
+fn Entry::set_note(Self, String) -> Unit
+fn Entry::set_number(Self, Value) -> Unit
+fn Entry::set_organization(Self, String) -> Unit
+fn Entry::set_pages(Self, Value) -> Unit
+fn Entry::set_publisher(Self, String) -> Unit
+fn Entry::set_school(Self, String) -> Unit
+fn Entry::set_series(Self, String) -> Unit
+fn Entry::set_title(Self, String) -> Unit
+fn Entry::set_type(Self, String) -> Unit
+fn Entry::set_url(Self, String) -> Unit
+fn Entry::set_volume(Self, Value) -> Unit
+fn Entry::set_year(Self, Value) -> Unit
+fn Entry::size(Self) -> Int
+fn Entry::stringify(Self) -> String
+fn Entry::title(Self) -> String?
+fn Entry::type_(Self) -> String?
+fn Entry::url(Self) -> String?
+fn Entry::volume(Self) -> Value?
+fn Entry::year(Self) -> Value?
+
+pub(all) enum Value {
+  String(String)
+  Digit(Int)
+  Month(String)
+}
+impl Show for Value
+
+// Type aliases
+
+// Traits
+

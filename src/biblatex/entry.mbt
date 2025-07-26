@@ -42,7 +42,7 @@ pub struct Entry {
 pub fn Entry::new(
   entry_type~ : String,
   cite_key~ : String,
-  fields~ : Map[String, Value] = {}
+  fields~ : Map[String, Value] = {},
 ) -> Entry {
   { entry: entry_type, cite_key, fields }
 }
