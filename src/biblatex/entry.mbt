@@ -560,10 +560,9 @@ pub fn Entry::set_issn(self : Entry, issn : String) -> Unit {
 /// Get the journal of the Entry.
 /// ```mbt
 /// let entry = Entry::new(entry_type="article", cite_key="CitekeyArticle", fields={
-///   "journal":String("The independence of the continuum hypothesis"),
 ///   "journal":String("Proceedings of the National Academy of Sciences"),
 /// })
-/// entry.journal() |> ignore() // Some("The independence of the continuum hypothesis")
+/// entry.journal() |> ignore() // Some("Proceedings of the National Academy of Sciences")
 /// ```
 pub fn Entry::journal(self : Entry) -> String? {
   match self.fields.get("journal") {
@@ -576,7 +575,6 @@ pub fn Entry::journal(self : Entry) -> String? {
 /// Set the journal of the Entry.
 /// ```mbt
 /// let entry = Entry::new(entry_type="article", cite_key="CitekeyArticle", fields={
-///   "journal":String("The independence of the continuum hypothesis"),
 ///   "journal":String("Proceedings of the National Academy of Sciences"),
 /// })
 /// entry.set_journal("The independence of the continuum hypothesis2")
@@ -786,6 +784,7 @@ pub fn Entry::school(self : Entry) -> String? {
 /// })
 /// entry.set_school("The independence of the continuum hypothesis2")
 /// entry.school() |> ignore() // Some("The independence of the continuum hypothesis2")
+/// ```
 pub fn Entry::set_school(self : Entry, school : String) -> Unit {
   self.fields.set("school", Value::String(school))
 }
@@ -858,6 +857,7 @@ pub fn Entry::set_series(self : Entry, series : String) -> Unit {
 ///   "journal":String("Proceedings of the National Academy of Sciences"),
 /// })
 /// entry.url() |> ignore() // Some("\\url{https://www.google.com}")
+/// ```
 pub fn Entry::url(self : Entry) -> String? {
   match self.fields.get("url") {
     Some(Value::String(url)) => Some(url)
@@ -873,7 +873,7 @@ pub fn Entry::url(self : Entry) -> String? {
 ///   "journal":String("Proceedings of the National Academy of Sciences"),
 /// })
 /// entry.set_url("\\url{https://www.google.com}")
-/// entry.url() |> ignore() // Some("\url{https://www.google.com}")
+/// entry.url() |> ignore() // Some("\\url{https://www.google.com}")
 /// ```
 pub fn Entry::set_url(self : Entry, url : String) -> Unit {
   self.fields.set("url", Value::String(url))

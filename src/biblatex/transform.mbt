@@ -5,11 +5,12 @@ fn to_value(value : InnerValue, string_map : Map[String, InnerValue]) -> Value {
     Digit(value) => Value::Digit(value)
     Month(value) => Value::Month(value)
     ToValue(value) =>
-      match string_map.get(value).unwrap() {
-        String(value) => Value::String(value)
-        Digit(value) => Value::Digit(value)
-        Month(value) => Value::Month(value)
-        ToValue(value) => to_value(ToValue(value), string_map)
+      match string_map.get(value) {
+        Some(String(value)) => Value::String(value)
+        Some(Digit(value)) => Value::Digit(value)
+        Some(Month(value)) => Value::Month(value)
+        Some(ToValue(value)) => to_value(ToValue(value), string_map)
+        None => Value::String(value) // fallback to original value if not found in string map
       }
   }
 }

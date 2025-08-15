@@ -23,13 +23,14 @@ priv struct Lexer {
 
 ///|
 fn Lexer::new(input : String) -> Lexer {
-  { input, currentChar: Some(input.get_char(0).unwrap()), currentIndex: 1 }
+  let current_char = if input.length() > 0 { input.get_char(0) } else { None }
+  { input, currentChar: current_char, currentIndex: 1 }
 }
 
 ///|
 fn Lexer::advance(self : Lexer) -> Unit {
   if self.currentIndex < self.input.length() {
-    self.currentChar = Some(self.input.get_char(self.currentIndex).unwrap())
+    self.currentChar = self.input.get_char(self.currentIndex)
     self.currentIndex += 1
   } else {
     self.currentChar = None
@@ -39,7 +40,7 @@ fn Lexer::advance(self : Lexer) -> Unit {
 ///|
 fn Lexer::back(self : Lexer) -> Unit {
   self.currentIndex -= 1
-  self.currentChar = Some(self.input.get_char(self.currentIndex).unwrap())
+  self.currentChar = self.input.get_char(self.currentIndex)
 }
 
 ///|
@@ -97,7 +98,10 @@ fn Lexer::escape_handle(
           buffer.write_string(Lexer::escape_handle(self, start_char, false))
           self.advance() // notice that
         } else {
-          buffer.write_char(self.currentChar.unwrap())
+          match self.currentChar {
+            Some(ch) => buffer.write_char(ch)
+            None => () // should not happen due to loop condition
+          }
         }
         self.advance()
       }
