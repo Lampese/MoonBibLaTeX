@@ -3,6 +3,8 @@ package "Lampese/biblatex/biblatex"
 
 // Values
 
+// Errors
+
 // Types and methods
 pub struct Bibliography {
   // private fields
@@ -38,7 +40,7 @@ fn Entry::isbn(Self) -> String?
 fn Entry::issn(Self) -> String?
 fn Entry::journal(Self) -> String?
 fn Entry::month(Self) -> String?
-fn Entry::new(entry_type~ : String, cite_key~ : String, fields~ : Map[String, Value] = ..) -> Self
+fn Entry::new(entry_type~ : String, cite_key~ : String, fields? : Map[String, Value]) -> Self
 fn Entry::note(Self) -> String?
 fn Entry::number(Self) -> Value?
 fn Entry::organization(Self) -> String?
